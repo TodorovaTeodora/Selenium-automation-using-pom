@@ -34,7 +34,7 @@ public class PaymentDetails {
         this.cardBrand = cardBrand;
     }
 
-    public String cardHolderName() {
+    public String getcardHolderName() {
         return cardHolderName;
     }
 
