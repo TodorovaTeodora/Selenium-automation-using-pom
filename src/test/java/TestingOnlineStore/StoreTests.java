@@ -31,8 +31,19 @@ private Actions action;
     public void setUp() {
         driver = new ChromeDriver();
     }
-
+    
+    @AfterEach
+    public void tearDown() {
+        driver.quit();
+    }
+    
     @Test
+    private WebElement waitAndFindElement(By locator) {
+    var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)",element);
+        return element;
+    }
+    
     public void testBuyProduct() {
 
         login("demouser@microsoft.com", "Pass@word1", false);
@@ -92,7 +103,11 @@ private Actions action;
         var addToBasketButton = waitAndFindElement(By.xpath(addToBasketXpath));
         addToBasketButton.click();
     }
-
+    
+  private void validateInnerTextIs(WebElement resultElement, String expectedText) {
+        webDriverWait.until(ExpectedConditions.textToBePresentInElement(resultElement, expectedText));
+    }
+    
     private void assertTotal (String expectedTotal) {
         var totalSection = waitAndFindElement(By.xpath("//section[text()='Total']//parent::article//following-sibling::article/section[2]"));
         validateInnerTextIs(totalSection, String.format("$ %s", expectedTotal));
@@ -141,19 +156,5 @@ private Actions action;
         fillPaymentDetails(paymentDetails);
     }
 
-    private void validateInnerTextIs(WebElement resultElement, String expectedText) {
-        webDriverWait.until(ExpectedConditions.textToBePresentInElement(resultElement, expectedText));
-    }
-
-    private WebElement waitAndFindElement(By locator) {
-    var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)",element);
-        return element;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
-    }
 
 }
