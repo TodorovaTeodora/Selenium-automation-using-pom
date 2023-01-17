@@ -23,7 +23,7 @@ private WebDriverWait webDriverWait;
 private Actions action;
 
     @BeforeAll
-public static void setupClass(){
+    public static void setupClass(){
         WebDriverManager.chromedriver().setup();
     }
 
@@ -55,7 +55,8 @@ public static void setupClass(){
         var passwordInput = waitAndFindElement(By.id("Input_Password"));
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
-        if(shouldRememberMe){
+      
+        if (shouldRememberMe) {
             var rememberMeCheckBox = waitAndFindElement(By.id("Input_RememberMe"));
             rememberMeCheckBox.click();
         }
@@ -67,7 +68,7 @@ public static void setupClass(){
     private void filterItems(String brandName, String itemType){
 
         var brandInput = new Select(waitAndFindElement(By.id("CatalogModel_BrandFilterApplied")));
-        if(brandName != null || !brandName.isEmpty()){
+        if (brandName != null || !brandName.isEmpty()) {
 
             brandInput.selectByVisibleText(brandName);
         } else {
@@ -75,7 +76,7 @@ public static void setupClass(){
         }
 
         var itemTypeInput = new Select(waitAndFindElement(By.id("CatalogModel_TypesFilterApplied")));
-        if(itemType != null || !itemType.isEmpty()) {
+        if (itemType != null || !itemType.isEmpty()) {
 
             itemTypeInput.selectByVisibleText(itemType);
         } else {
