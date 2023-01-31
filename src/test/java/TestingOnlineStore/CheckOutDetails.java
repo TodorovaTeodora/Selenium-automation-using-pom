@@ -8,11 +8,11 @@ public class CheckOutDetails {
     private String zipCode;
 
     public CheckOutDetails() {
-        this.street = "Schoenebergerstrasse 99";
-        this.state = "Schwarzenberg";
-        this.city = "Schwarzenberg";
-        this.country = "Germany";
-        this.zipCode = "08355";
+        this.street = "101 Bulgaria Boulevard";
+        this.state = "Sofia-city";
+        this.city = "Sofia";
+        this.country = "Bulgaria";
+        this.zipCode = "1000";
     }
 
     public String getStreet() {
