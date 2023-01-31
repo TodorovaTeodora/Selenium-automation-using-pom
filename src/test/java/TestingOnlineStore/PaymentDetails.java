@@ -20,10 +20,10 @@ public class PaymentDetails {
 
     public PaymentDetails() {
         this.cardBrand = Brand.MASTER_CARD;
-        this.cardHolderName = "Luke Skywalker";
-        this.cardNumber = "5555555555554444";
-        this.expirationMonth = "11";
-        this.expirationYear = "2023";
+        this.cardHolderName = "Ivan Ivanov";
+        this.cardNumber = "BGSFSA12345678911";
+        this.expirationMonth = "12";
+        this.expirationYear = "2029";
         this.cvc = "123";
     }
     public Brand getCardBrand() {
