@@ -53,7 +53,7 @@ private Actions action;
         //login and assert completed order
     }
     
-     private WebElement waitAndFindElement(By locator) {
+    private WebElement waitAndFindElement(By locator) {
     var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)",element);
         return element;
