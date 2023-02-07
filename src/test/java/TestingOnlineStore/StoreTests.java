@@ -37,13 +37,7 @@ private Actions action;
         driver.quit();
     }
     
-    @Test
-    private WebElement waitAndFindElement(By locator) {
-    var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)",element);
-        return element;
-    }
-    
+    @Test 
     public void testBuyProduct() {
 
         login("demouser@microsoft.com", "Pass@word1", false);
@@ -57,6 +51,12 @@ private Actions action;
         completePurchase(new CheckOutDetails(), new PaymentDetails());
 
         //login and assert completed order
+    }
+    
+     private WebElement waitAndFindElement(By locator) {
+    var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)",element);
+        return element;
     }
 
     private void login(String email, String password, boolean shouldRememberMe) {
