@@ -43,14 +43,9 @@ private Actions action;
         login("demouser@microsoft.com", "Pass@word1", false);
         filterItems(".NET", "T-Shirt");
         addItemToCart(".NET Foundation Sweatshirt");
-
-        //Assert total
         assertTotal("12.00");
-
         proceedToCheckOut();
         completePurchase(new CheckOutDetails(), new PaymentDetails());
-
-        //login and assert completed order
     }
     
     private WebElement waitAndFindElement(By locator) {
