@@ -17,10 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StoreTests {
     
-private final int WAIT_FOR_ELEMENT_TIMEOUT = 30;
-private WebDriver driver;
-private WebDriverWait webDriverWait;
-private Actions action;
+    private final int WAIT_FOR_ELEMENT_TIMEOUT = 30;
+    private WebDriver driver;
+    private WebDriverWait webDriverWait;
+    private Actions action;
 
     @BeforeAll
     public static void setupClass() {
@@ -49,7 +49,7 @@ private Actions action;
     }
     
     private WebElement waitAndFindElement(By locator) {
-    var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        var element = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)",element);
         return element;
     }
@@ -62,20 +62,19 @@ private Actions action;
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
       
-        if (shouldRememberMe) {
-            var rememberMeCheckBox = waitAndFindElement(By.id("Input_RememberMe"));
-            rememberMeCheckBox.click();
+     if(shouldRememberMe) {
+        var rememberMeCheckBox = waitAndFindElement(By.id("Input_RememberMe"));
+        rememberMeCheckBox.click();
         }
 
         var loginButton = waitAndFindElement(By.tagName("button"));
         loginButton.click();
     }
 
-    private void filterItems(String brandName, String itemType){
+     private void filterItems(String brandName, String itemType){
 
         var brandInput = new Select(waitAndFindElement(By.id("CatalogModel_BrandFilterApplied")));
-        if (brandName != null || !brandName.isEmpty()) {
-
+        if(brandName != null || !brandName.isEmpty()) {
             brandInput.selectByVisibleText(brandName);
         } else {
             brandInput.selectByVisibleText("All");
@@ -83,7 +82,6 @@ private Actions action;
 
         var itemTypeInput = new Select(waitAndFindElement(By.id("CatalogModel_TypesFilterApplied")));
         if (itemType != null || !itemType.isEmpty()) {
-
             itemTypeInput.selectByVisibleText(itemType);
         } else {
             itemTypeInput.selectByVisibleText("All");
@@ -109,7 +107,6 @@ private Actions action;
     }
 
     private void proceedToCheckOut() {
-
         var basketButton = waitAndFindElement(By.xpath("//input[@value= '[ Checkout ]']"));
         basketButton.click();
     }
