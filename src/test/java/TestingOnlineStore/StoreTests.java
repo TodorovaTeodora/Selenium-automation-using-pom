@@ -62,10 +62,10 @@ public class StoreTests {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
       
-     if(shouldRememberMe) {
+       if(shouldRememberMe) {
         var rememberMeCheckBox = waitAndFindElement(By.id("Input_RememberMe"));
         rememberMeCheckBox.click();
-        }
+       }
 
         var loginButton = waitAndFindElement(By.tagName("button"));
         loginButton.click();
