@@ -1,1 +1,1 @@
-# Simple testing project using Selenium WebDriver, junit4 and implementing the Page object model.
+# Simple testing project with Java, Maven, Selenium WebDriver, junit and implementing the Page object model.
